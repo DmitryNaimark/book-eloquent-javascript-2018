@@ -14,8 +14,15 @@ function hashtagsTriangle() {
     }
 }
 
+function hashtagsTriangle2() {
+    for (let str = '#'; str.length < 8; str += '#') {
+        console.log(str);
+    }
+}
+
 
 // ---------------------------------------------------
 //                    Test Cases
 // ---------------------------------------------------
 hashtagsTriangle();
+hashtagsTriangle2();
