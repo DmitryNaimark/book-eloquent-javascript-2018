@@ -22,7 +22,7 @@ function chessboard(size) {
     // By creating "evenString" and "oddString", we decrease Runtime Complexity.
     // Since we will concatenate the whole string, instead of character by character.
     for (let i = 0; i < size; i++) {
-        if (i % 2) {
+        if (i % 2 === 0) {
             evenString += ' ';
             oddString += '#';
         } else {
@@ -35,7 +35,7 @@ function chessboard(size) {
     
     let resString = '';
     for (let i = 0; i < size; i++) {
-        if (i % 2) {
+        if (i % 2 === 0) {
             resString += evenString;
         } else {
             resString += oddString;
