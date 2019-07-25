@@ -8,6 +8,8 @@
 // Neither may use the standard reverse method.
 // ---------------------------------------------------
 function reverseArray(arr) {
+    // If we know the resulting array's length beforehand, it's faster to set it immediately,
+    // instead of pushing each item into array.
     let arrReversed = Array(arr.length);
     
     for (let i = 0, j = arr.length - 1; i < arr.length; i++, j--) {
