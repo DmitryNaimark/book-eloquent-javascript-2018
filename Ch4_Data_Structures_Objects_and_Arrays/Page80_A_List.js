@@ -26,25 +26,30 @@ function arrayToList(arr) {
     return list;
 }
 
+// Very smart Author's way to go from the end till the start of the array.
+function arrayToListFromEndToStart(arr) {
+    let list = null;
+    for (let i = arr.length - 1; i >= 0; i--) {
+        list = {
+            value: arr[i],
+            rest: list
+        }
+    }
+    return list;
+}
+
 function listToArray(list) {
-    if (list == null) {
-        return [];
+    let arr = [];
+    for (let curNode = list; curNode != null; curNode = curNode.rest) {
+        arr.push(curNode.value);
     }
-    
-    let curListNode = list,
-        arr = [];
-    
-    while (curListNode != null) {
-        arr.push(curListNode.value);
-        curListNode = curListNode.rest;
-    }
-    
     return arr;
 }
 
-function prepend(firstValue, list) {
+function prepend(value, list) {
     return {
-        value: firstValue,
+        // Note: it will become "value: value"
+        value,
         rest: list
     };
 }
@@ -77,6 +82,8 @@ function  nthRecursive(list, n) {
 // ---------------------------------------------------
 // List 1,2,3,4
 console.log(JSON.stringify(arrayToList([1, 2, 3, 4])));
+// List 1,2,3,4
+console.log(JSON.stringify(arrayToListFromEndToStart([1, 2, 3, 4])));
 
 // [1, 2, 3, 4]
 console.log(listToArray(arrayToList([1, 2, 3, 4])));
